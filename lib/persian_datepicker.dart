@@ -1,6 +1,7 @@
 library persian_datepicker;
 
 import 'package:flutter/material.dart';
+import 'package:persian_datepicker/widgets/date_select.dart';
 import 'package:persian_datepicker/widgets/month_select.dart';
 import 'package:shamsi_date/shamsi_date.dart';
 
@@ -16,6 +17,14 @@ class PersianDatepicker extends StatefulWidget {
 
   /// Evnet that calls whenever monthes changes. Fucntion(Jalali)
   final Function(DateTime) onMonthChange;
+
+  /// Acvive Date TextStyle
+
+  /// Active Date onSelect
+
+  /// Deactive Date TextStyle
+
+  /// Deavtive Date onSelect
 
   const PersianDatepicker({
     Key key,
@@ -45,10 +54,18 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
         children: [
           MonthSelect(
             jalali: this.jalali,
-            onMonthChange: widget.onMonthChange,
+            onMonthChange: (jalali) {
+              setState(() {
+                this.jalali = jalali;
+                widget.onMonthChange(jalali.toDateTime());
+              });
+            },
             monthTextStyle: widget.monthTextStyle,
             yearTextStyle: widget.yearTextStyle,
             customMonthesName: widget.customMonthesName,
+          ),
+          DateSelect(
+            jalali: this.jalali,
           ),
         ],
       ),

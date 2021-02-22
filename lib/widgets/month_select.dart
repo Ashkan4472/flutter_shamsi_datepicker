@@ -7,7 +7,7 @@ class MonthSelect extends StatefulWidget {
   final TextStyle yearTextStyle;
   final List<String> customMonthesName;
   final Jalali jalali;
-  final Function(DateTime) onMonthChange;
+  final Function(Jalali) onMonthChange;
 
   MonthSelect({
     Key key,
@@ -41,7 +41,7 @@ class _MonthSelectState extends State<MonthSelect> {
             onPressed: () {
               setState(() {
                 this.jalali = this.jalali.addMonths(1);
-                widget.onMonthChange(this.jalali.toDateTime());
+                widget.onMonthChange(this.jalali);
               });
             },
           ),
@@ -64,7 +64,7 @@ class _MonthSelectState extends State<MonthSelect> {
             onPressed: () {
               setState(() {
                 this.jalali = this.jalali.addMonths(-1);
-                widget.onMonthChange(this.jalali.toDateTime());
+                widget.onMonthChange(this.jalali);
               });
             },
           ),
