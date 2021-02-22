@@ -32,7 +32,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Persian Datepicker test"),
       ),
       body: Center(
-        child: PersianDatepicker(),
+        child: PersianDatepicker(
+          onMonthChange: (j) {
+            print(j);
+          },
+        ),
       ),
     );
   }
