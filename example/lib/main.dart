@@ -35,15 +35,52 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final activeDateTextStyle = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.black,
+  );
+
+  final deactiveDateTextStyle = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: Colors.red[900],
+  );
+
+  final monthTextStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 18,
+    color: Colors.grey[850],
+  );
+
+  final yearTextStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 18,
+    color: Colors.grey[850],
+  );
+
+  final weekTextStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+    color: Colors.grey[850],
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Persian Datepicker test"),
+        title: Text("Persian Datepicker example"),
       ),
       body: Center(
         child: PersianDatepicker(
           deactiveWeekList: [1, 2, 5],
+          deactiveDayList: [11, 28],
+          activeDateTextStyle: activeDateTextStyle,
+          deactiveDateTextStyle: deactiveDateTextStyle,
+          monthTextStyle: monthTextStyle,
+          yearTextStyle: yearTextStyle,
+          weekTextStyle: weekTextStyle,
+          // customMonthesName: [],
           onMonthChange: (result) {
             print("onMonthChange => " + result.toString());
           },
