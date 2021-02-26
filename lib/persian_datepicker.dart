@@ -29,6 +29,10 @@ class PersianDatepicker extends StatefulWidget {
   /// in DatePicker. if it is null then all weeks are active
   final List<int> deactiveWeekList;
 
+  /// Deactive Day in month. this is a list with the number number of the day
+  /// in month and this will disable that date in datepicker
+  final List<int> deactiveDayList;
+
   /// Deactive Date TextStyle
   final TextStyle deactiveDateTextStyle;
 
@@ -54,6 +58,7 @@ class PersianDatepicker extends StatefulWidget {
     this.deactiveDateTextStyle,
     this.useFullWeekName,
     this.weekTextStyle,
+    this.deactiveDayList,
   }) : super(key: key);
 
   @override
@@ -95,6 +100,7 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
             deactiveDateTextStyle: widget.deactiveDateTextStyle,
             useFullWeekName: widget.useFullWeekName,
             weekTextStyle: widget.weekTextStyle,
+            deactiveDayList: widget.deactiveDayList,
           ),
         ],
       ),

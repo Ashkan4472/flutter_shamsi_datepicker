@@ -11,6 +11,7 @@ class DateSelect extends StatefulWidget {
   final List<int> deactiveWeekList;
   final Function(String) onDeactiveDateSelect;
   final TextStyle deactiveDateTextStyle;
+  final List<int> deactiveDayList;
 
   const DateSelect({
     Key key,
@@ -22,6 +23,7 @@ class DateSelect extends StatefulWidget {
     this.activeDateTextStyle,
     this.deactiveWeekList,
     this.deactiveDateTextStyle,
+    this.deactiveDayList,
   }) : super(key: key);
 
   @override
@@ -40,6 +42,7 @@ class _DateSelectState extends State<DateSelect> {
           activeDateTextStyle: widget.activeDateTextStyle,
           deactiveWeekList: widget.deactiveWeekList,
           deactiveDateTextStyle: widget.deactiveDateTextStyle,
+          deactiveDayList: widget.deactiveDayList,
           onDateSelect: (Jalali jalai) {
             final y = jalai.formatter.yyyy;
             final m = jalai.formatter.mm;
