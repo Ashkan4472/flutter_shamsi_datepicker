@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:persian_datepicker/utils/month_util.dart';
+import 'package:shamsi_datepicker/utils/month_util.dart';
 import 'package:shamsi_date/shamsi_date.dart';
 
 class MonthSelect extends StatefulWidget {

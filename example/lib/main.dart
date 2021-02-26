@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:persian_datepicker/persian_datepicker.dart';
+import 'package:shamsi_datepicker/shamsi_datepicker.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Persian Datepicker example"),
       ),
       body: Center(
-        child: PersianDatepicker(
+        child: ShamsiDatepicker(
           deactiveWeekList: [1, 2, 5],
           deactiveDayList: [11, 28],
           activeDateTextStyle: activeDateTextStyle,

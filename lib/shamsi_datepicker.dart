@@ -1,11 +1,11 @@
 library persian_datepicker;
 
 import 'package:flutter/material.dart';
-import 'package:persian_datepicker/widgets/date_select.dart';
-import 'package:persian_datepicker/widgets/month_select.dart';
+import 'package:shamsi_datepicker/widgets/date_select.dart';
+import 'package:shamsi_datepicker/widgets/month_select.dart';
 import 'package:shamsi_date/shamsi_date.dart';
 
-class PersianDatepicker extends StatefulWidget {
+class ShamsiDatepicker extends StatefulWidget {
   /// TextStyle for monthes
   final TextStyle monthTextStyle;
 
@@ -45,7 +45,7 @@ class PersianDatepicker extends StatefulWidget {
   /// TextStyle for weeks text
   final TextStyle weekTextStyle;
 
-  const PersianDatepicker({
+  const ShamsiDatepicker({
     Key key,
     @required this.onMonthChange,
     @required this.onDateSelect,
@@ -65,7 +65,7 @@ class PersianDatepicker extends StatefulWidget {
   _PersianDatepickerState createState() => _PersianDatepickerState();
 }
 
-class _PersianDatepickerState extends State<PersianDatepicker> {
+class _PersianDatepickerState extends State<ShamsiDatepicker> {
   Jalali jalali;
 
   @override

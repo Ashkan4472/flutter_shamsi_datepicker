@@ -1,8 +1,8 @@
-name: persian_datepicker
+name: shamsi_datepicker
 description: A simple shamsi date picker.
 version: 0.1.1
 author: Ashkan Tofangdar
-repository: https://github.com/Ashkan4472/persian_datepicker_flutter_package
+repository: https://github.com/Ashkan4472/flutter_shamsi_datepicker
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
