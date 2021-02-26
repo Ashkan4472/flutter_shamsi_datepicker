@@ -8,6 +8,7 @@ class DateSelect extends StatefulWidget {
   final TextStyle weekTextStyle;
   final Function(String) onDateSelect;
   final TextStyle activeDateTextStyle;
+  final List<int> deactiveWeekList;
 
   const DateSelect({
     Key key,
@@ -16,6 +17,7 @@ class DateSelect extends StatefulWidget {
     this.useFullWeekName = false,
     this.weekTextStyle,
     this.activeDateTextStyle,
+    this.deactiveWeekList,
   }) : super(key: key);
 
   @override
@@ -28,15 +30,19 @@ class _DateSelectState extends State<DateSelect> {
     var gridViewChild = List<Widget>();
     gridViewChild.addAll(
         DateUtil.headerWidget(widget.useFullWeekName, widget.weekTextStyle));
-    gridViewChild.addAll(DateUtil.daysWidget(
+    gridViewChild.addAll(
+      DateUtil.daysWidget(
         jalali: widget.jalali,
+        activeDateTextStyle: widget.activeDateTextStyle,
+        deactiveWeekList: widget.deactiveWeekList,
         onDateSelect: (Jalali jalai) {
           final y = jalai.formatter.yyyy;
           final m = jalai.formatter.mm;
           final d = jalai.formatter.dd;
           widget.onDateSelect('$y/$m/$d');
         },
-        activeDateTextStyle: widget.activeDateTextStyle));
+      ),
+    );
 
     return Expanded(
       child: GridView.count(

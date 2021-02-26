@@ -34,6 +34,7 @@ class DateUtil {
     Jalali jalali,
     Function(Jalali) onDateSelect,
     TextStyle activeDateTextStyle,
+    List<int> deactiveWeekList,
   }) {
     final startDay = _startWeekDayOfMonth(jalali) - 1;
 
@@ -47,10 +48,23 @@ class DateUtil {
 
       var activeStyle =
           activeDateTextStyle ?? TextStyle(fontWeight: FontWeight.w400);
+      var day = index - startDay + 1;
+
+      // this checks whethter it is in deactive list or not
+      if (deactiveWeekList != null &&
+          deactiveWeekList.contains(jalali.withDay(day).weekDay)) {
+        return FlatButton(
+          child: Text(
+            '$day',
+            style: TextStyle(color: Colors.red, fontWeight: FontWeight.w300),
+          ),
+          onPressed: null,
+        );
+      }
 
       return FlatButton(
         child: Text(
-          '${index - startDay + 1}',
+          '$day',
           style: activeStyle,
         ),
         onPressed: () {

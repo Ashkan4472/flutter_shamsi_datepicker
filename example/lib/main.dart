@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: PersianDatepicker(
+          deactiveWeekList: [1, 2, 5],
           onMonthChange: (result) {
             print("onMonthChange => " + result.toString());
           },
