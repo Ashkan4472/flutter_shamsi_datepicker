@@ -16,7 +16,7 @@ class PersianDatepicker extends StatefulWidget {
   final List<String> customMonthesName;
 
   /// Evnet that calls whenever monthes changes. Fucntion(Jalali)
-  final Function(DateTime) onMonthChange;
+  final Function(int) onMonthChange;
 
   /// Acvive Date TextStyle
 
@@ -59,7 +59,7 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
             onMonthChange: (jalali) {
               setState(() {
                 this.jalali = jalali;
-                widget.onMonthChange(jalali.toDateTime());
+                widget.onMonthChange(jalali.month);
               });
             },
             monthTextStyle: widget.monthTextStyle,
