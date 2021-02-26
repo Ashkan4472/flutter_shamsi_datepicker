@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:persian_datepicker/persian_datepicker.dart';
 
 void main() {
@@ -9,6 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("fa", "IR"),
+      ],
+      locale: Locale("fa", "IR"),
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,

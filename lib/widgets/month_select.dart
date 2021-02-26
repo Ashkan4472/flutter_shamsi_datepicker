@@ -37,20 +37,15 @@ class _MonthSelectState extends State<MonthSelect> {
       child: Row(
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_back_ios_outlined),
+            icon: Icon(Icons.arrow_forward_ios_outlined),
             onPressed: () {
               setState(() {
-                this.jalali = this.jalali.addMonths(1);
+                this.jalali = this.jalali.addMonths(-1);
                 widget.onMonthChange(this.jalali);
               });
             },
           ),
           Spacer(),
-          Text(
-            this.jalali.year.toString(),
-            style: widget.yearTextStyle,
-          ),
-          SizedBox(width: 8),
           Text(
             (widget.customMonthesName != null &&
                     widget.customMonthesName.length == 11)
@@ -58,12 +53,17 @@ class _MonthSelectState extends State<MonthSelect> {
                 : MonthUtil.getMonthName(this.jalali.month),
             style: widget.monthTextStyle,
           ),
+          SizedBox(width: 8),
+          Text(
+            this.jalali.year.toString(),
+            style: widget.yearTextStyle,
+          ),
           Spacer(),
           IconButton(
-            icon: Icon(Icons.arrow_forward_ios_outlined),
+            icon: Icon(Icons.arrow_back_ios_outlined),
             onPressed: () {
               setState(() {
-                this.jalali = this.jalali.addMonths(-1);
+                this.jalali = this.jalali.addMonths(1);
                 widget.onMonthChange(this.jalali);
               });
             },
