@@ -19,6 +19,7 @@ class PersianDatepicker extends StatefulWidget {
   final Function(int) onMonthChange;
 
   /// Acvive Date TextStyle
+  final TextStyle activeDateTextStyle;
 
   /// Active Date onSelect
   final Function(String) onDateSelect;
@@ -34,6 +35,7 @@ class PersianDatepicker extends StatefulWidget {
     this.monthTextStyle,
     this.yearTextStyle,
     this.customMonthesName,
+    this.activeDateTextStyle,
   }) : super(key: key);
 
   @override
@@ -69,6 +71,7 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
           DateSelect(
             jalali: this.jalali,
             onDateSelect: widget.onDateSelect,
+            activeDateTextStyle: widget.activeDateTextStyle,
           ),
         ],
       ),

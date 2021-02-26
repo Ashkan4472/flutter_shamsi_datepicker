@@ -7,6 +7,7 @@ class DateSelect extends StatefulWidget {
   final bool useFullWeekName;
   final TextStyle weekTextStyle;
   final Function(String) onDateSelect;
+  final TextStyle activeDateTextStyle;
 
   const DateSelect({
     Key key,
@@ -14,6 +15,7 @@ class DateSelect extends StatefulWidget {
     @required this.onDateSelect,
     this.useFullWeekName = false,
     this.weekTextStyle,
+    this.activeDateTextStyle,
   }) : super(key: key);
 
   @override
@@ -27,14 +29,14 @@ class _DateSelectState extends State<DateSelect> {
     gridViewChild.addAll(
         DateUtil.headerWidget(widget.useFullWeekName, widget.weekTextStyle));
     gridViewChild.addAll(DateUtil.daysWidget(
-      widget.jalali,
-      (Jalali jalai) {
-        final y = jalai.formatter.yyyy;
-        final m = jalai.formatter.mm;
-        final d = jalai.formatter.dd;
-        widget.onDateSelect('$y/$m/$d');
-      },
-    ));
+        jalali: widget.jalali,
+        onDateSelect: (Jalali jalai) {
+          final y = jalai.formatter.yyyy;
+          final m = jalai.formatter.mm;
+          final d = jalai.formatter.dd;
+          widget.onDateSelect('$y/$m/$d');
+        },
+        activeDateTextStyle: widget.activeDateTextStyle));
 
     return Expanded(
       child: GridView.count(

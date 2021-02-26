@@ -30,7 +30,11 @@ class DateUtil {
     return jalali.monthLength;
   }
 
-  static List<Widget> daysWidget(Jalali jalali, Function(Jalali) onDateSelect) {
+  static List<Widget> daysWidget({
+    Jalali jalali,
+    Function(Jalali) onDateSelect,
+    TextStyle activeDateTextStyle,
+  }) {
     final startDay = _startWeekDayOfMonth(jalali) - 1;
 
     return List.generate(_monthLength(jalali) + startDay, (index) {
@@ -41,10 +45,13 @@ class DateUtil {
         );
       }
 
+      var activeStyle =
+          activeDateTextStyle ?? TextStyle(fontWeight: FontWeight.w400);
+
       return FlatButton(
         child: Text(
           '${index - startDay + 1}',
-          style: TextStyle(fontWeight: FontWeight.w400),
+          style: activeStyle,
         ),
         onPressed: () {
           onDateSelect(jalali.withDay(index - startDay + 1));
