@@ -46,6 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
           onMonthChange: (j) {
             print(j);
           },
+          onDateSelect: (result) {
+            print('onDateSelect => ' + result);
+          },
         ),
       ),
     );

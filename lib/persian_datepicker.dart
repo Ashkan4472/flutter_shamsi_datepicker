@@ -21,6 +21,7 @@ class PersianDatepicker extends StatefulWidget {
   /// Acvive Date TextStyle
 
   /// Active Date onSelect
+  final Function(String) onDateSelect;
 
   /// Deactive Date TextStyle
 
@@ -29,6 +30,7 @@ class PersianDatepicker extends StatefulWidget {
   const PersianDatepicker({
     Key key,
     @required this.onMonthChange,
+    @required this.onDateSelect,
     this.monthTextStyle,
     this.yearTextStyle,
     this.customMonthesName,
@@ -66,6 +68,7 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
           ),
           DateSelect(
             jalali: this.jalali,
+            onDateSelect: widget.onDateSelect,
           ),
         ],
       ),
