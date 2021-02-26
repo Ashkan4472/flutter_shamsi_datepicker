@@ -35,6 +35,12 @@ class PersianDatepicker extends StatefulWidget {
   /// Deavtive Date onSelect. this funtion returns shamsi string date
   final Function(String) onDeactiveDateSelect;
 
+  /// if sets to true, weeks name will written complete
+  final bool useFullWeekName;
+
+  /// TextStyle for weeks text
+  final TextStyle weekTextStyle;
+
   const PersianDatepicker({
     Key key,
     @required this.onMonthChange,
@@ -46,6 +52,8 @@ class PersianDatepicker extends StatefulWidget {
     this.activeDateTextStyle,
     this.deactiveWeekList,
     this.deactiveDateTextStyle,
+    this.useFullWeekName,
+    this.weekTextStyle,
   }) : super(key: key);
 
   @override
@@ -85,6 +93,8 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
             deactiveWeekList: widget.deactiveWeekList,
             onDeactiveDateSelect: widget.onDeactiveDateSelect,
             deactiveDateTextStyle: widget.deactiveDateTextStyle,
+            useFullWeekName: widget.useFullWeekName,
+            weekTextStyle: widget.weekTextStyle,
           ),
         ],
       ),

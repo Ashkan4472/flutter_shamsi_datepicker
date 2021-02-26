@@ -84,7 +84,9 @@ class DateUtil {
     bool useFullWeekName,
     TextStyle weekTextStyle,
   ) {
-    final _header = useFullWeekName ? _fullWeekNames : _shortWeekName;
+    final _header = (useFullWeekName != null && useFullWeekName)
+        ? _fullWeekNames
+        : _shortWeekName;
     final _headerWidget = _header.map((x) {
       if (weekTextStyle != null) {
         return Center(
