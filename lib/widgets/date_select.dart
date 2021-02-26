@@ -9,15 +9,19 @@ class DateSelect extends StatefulWidget {
   final Function(String) onDateSelect;
   final TextStyle activeDateTextStyle;
   final List<int> deactiveWeekList;
+  final Function(String) onDeactiveDateSelect;
+  final TextStyle deactiveDateTextStyle;
 
   const DateSelect({
     Key key,
     @required this.jalali,
     @required this.onDateSelect,
+    @required this.onDeactiveDateSelect,
     this.useFullWeekName = false,
     this.weekTextStyle,
     this.activeDateTextStyle,
     this.deactiveWeekList,
+    this.deactiveDateTextStyle,
   }) : super(key: key);
 
   @override
@@ -32,16 +36,22 @@ class _DateSelectState extends State<DateSelect> {
         DateUtil.headerWidget(widget.useFullWeekName, widget.weekTextStyle));
     gridViewChild.addAll(
       DateUtil.daysWidget(
-        jalali: widget.jalali,
-        activeDateTextStyle: widget.activeDateTextStyle,
-        deactiveWeekList: widget.deactiveWeekList,
-        onDateSelect: (Jalali jalai) {
-          final y = jalai.formatter.yyyy;
-          final m = jalai.formatter.mm;
-          final d = jalai.formatter.dd;
-          widget.onDateSelect('$y/$m/$d');
-        },
-      ),
+          jalali: widget.jalali,
+          activeDateTextStyle: widget.activeDateTextStyle,
+          deactiveWeekList: widget.deactiveWeekList,
+          deactiveDateTextStyle: widget.deactiveDateTextStyle,
+          onDateSelect: (Jalali jalai) {
+            final y = jalai.formatter.yyyy;
+            final m = jalai.formatter.mm;
+            final d = jalai.formatter.dd;
+            widget.onDateSelect('$y/$m/$d');
+          },
+          onDeactiveDateSelect: (Jalali jalai) {
+            final y = jalai.formatter.yyyy;
+            final m = jalai.formatter.mm;
+            final d = jalai.formatter.dd;
+            widget.onDeactiveDateSelect('$y/$m/$d');
+          }),
     );
 
     return Expanded(

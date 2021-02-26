@@ -21,7 +21,7 @@ class PersianDatepicker extends StatefulWidget {
   /// Acvive Date TextStyle
   final TextStyle activeDateTextStyle;
 
-  /// Active Date onSelect
+  /// Active Date onSelect. this funtion returns shamsi string date
   final Function(String) onDateSelect;
 
   /// Deactive Weeks number. this is a list with week number [1 => shanbe, 7 => jome]
@@ -30,18 +30,22 @@ class PersianDatepicker extends StatefulWidget {
   final List<int> deactiveWeekList;
 
   /// Deactive Date TextStyle
+  final TextStyle deactiveDateTextStyle;
 
-  /// Deavtive Date onSelect
+  /// Deavtive Date onSelect. this funtion returns shamsi string date
+  final Function(String) onDeactiveDateSelect;
 
   const PersianDatepicker({
     Key key,
     @required this.onMonthChange,
     @required this.onDateSelect,
+    @required this.onDeactiveDateSelect,
     this.monthTextStyle,
     this.yearTextStyle,
     this.customMonthesName,
     this.activeDateTextStyle,
     this.deactiveWeekList,
+    this.deactiveDateTextStyle,
   }) : super(key: key);
 
   @override
@@ -79,6 +83,8 @@ class _PersianDatepickerState extends State<PersianDatepicker> {
             onDateSelect: widget.onDateSelect,
             activeDateTextStyle: widget.activeDateTextStyle,
             deactiveWeekList: widget.deactiveWeekList,
+            onDeactiveDateSelect: widget.onDeactiveDateSelect,
+            deactiveDateTextStyle: widget.deactiveDateTextStyle,
           ),
         ],
       ),

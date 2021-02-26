@@ -50,6 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
           onDateSelect: (result) {
             print('onDateSelect => ' + result);
           },
+          onDeactiveDateSelect: (result) {
+            print('onDeactiveDateSelect => ' + result);
+          },
         ),
       ),
     );
