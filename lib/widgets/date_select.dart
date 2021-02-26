@@ -21,11 +21,15 @@ class DateSelect extends StatefulWidget {
 class _DateSelectState extends State<DateSelect> {
   @override
   Widget build(BuildContext context) {
+    var gridViewChild = List<Widget>();
+    gridViewChild.addAll(
+        DateUtil.headerWidget(widget.useFullWeekName, widget.weekTextStyle));
+    gridViewChild.addAll(DateUtil.daysWidget(widget.jalali));
+
     return Expanded(
       child: GridView.count(
         crossAxisCount: 7,
-        children:
-            DateUtil.headerWidget(widget.useFullWeekName, widget.weekTextStyle),
+        children: gridViewChild.toList(),
       ),
     );
   }
