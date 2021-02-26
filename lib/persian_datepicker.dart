@@ -15,7 +15,7 @@ class PersianDatepicker extends StatefulWidget {
   /// Default months name are set. add an array with length 12 for custom monthes name
   final List<String> customMonthesName;
 
-  /// Evnet that calls whenever monthes changes. Fucntion(Jalali)
+  /// Evnet that calls whenever monthes changes. Fucntion(int newMonth)
   final Function(int) onMonthChange;
 
   /// Acvive Date TextStyle
