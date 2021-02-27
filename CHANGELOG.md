@@ -1,3 +1,7 @@
+## [0.2.0]
+* added selection with custom color
+* added date formatter
+
 ## [0.1.1] - UPDATED LICENCE  
 
 added MIT license
