@@ -30,6 +30,25 @@ class DateUtil {
     return jalali.monthLength;
   }
 
+  static String formatDate(Jalali jalali, String format) {
+    var result = format;
+    var d = jalali.formatter.d;
+    var dd = jalali.formatter.dd;
+    var m = jalali.formatter.m;
+    var mm = jalali.formatter.mm;
+    var yy = jalali.formatter.yy;
+    var yyyy = jalali.formatter.yyyy;
+
+    result = result.replaceAll(new RegExp('yyyy'), yyyy);
+    result = result.replaceAll(new RegExp('yy'), yy);
+    result = result.replaceAll(new RegExp('mm'), mm);
+    result = result.replaceAll(new RegExp('m'), m);
+    result = result.replaceAll(new RegExp('dd'), dd);
+    result = result.replaceAll(new RegExp('d'), d);
+
+    return result;
+  }
+
   static List<Widget> daysWidget({
     Jalali jalali,
     Function(Jalali) onDateSelect,

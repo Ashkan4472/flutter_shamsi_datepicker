@@ -17,6 +17,7 @@ class DateSelect extends StatefulWidget {
   final Color activeSelectedDateTextColor;
   final Color deactiveSelectedDateTextColor;
   final double datesBorderRadius;
+  final String shamsiDateStringFormat;
 
   const DateSelect({
     Key key,
@@ -34,6 +35,7 @@ class DateSelect extends StatefulWidget {
     this.datesBorderRadius,
     this.deactiveSelectedDateBackColor,
     this.deactiveSelectedDateTextColor,
+    this.shamsiDateStringFormat,
   }) : super(key: key);
 
   @override
@@ -61,23 +63,21 @@ class _DateSelectState extends State<DateSelect> {
           datesBorderRadius: widget.datesBorderRadius,
           deactiveSelectedDateBackColor: widget.deactiveSelectedDateBackColor,
           deactiveSelectedDateTextColor: widget.deactiveSelectedDateTextColor,
-          onDateSelect: (Jalali jalai) {
+          onDateSelect: (Jalali jalali) {
             setState(() {
-              selectedDate = jalai.day;
+              selectedDate = jalali.day;
             });
-            final y = jalai.formatter.yyyy;
-            final m = jalai.formatter.mm;
-            final d = jalai.formatter.dd;
-            widget.onDateSelect('$y/$m/$d');
+            final result =
+                DateUtil.formatDate(jalali, widget.shamsiDateStringFormat);
+            widget.onDateSelect(result);
           },
-          onDeactiveDateSelect: (Jalali jalai) {
+          onDeactiveDateSelect: (Jalali jalali) {
             setState(() {
-              selectedDate = jalai.day;
+              selectedDate = jalali.day;
             });
-            final y = jalai.formatter.yyyy;
-            final m = jalai.formatter.mm;
-            final d = jalai.formatter.dd;
-            widget.onDeactiveDateSelect('$y/$m/$d');
+            final result =
+                DateUtil.formatDate(jalali, widget.shamsiDateStringFormat);
+            widget.onDeactiveDateSelect(result);
           }),
     );
 

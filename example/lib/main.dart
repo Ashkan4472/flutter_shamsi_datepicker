@@ -81,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
           yearTextStyle: yearTextStyle,
           weekTextStyle: weekTextStyle,
           // customMonthesName: [],
+          shamsiDateStringFormat: "mm-d-yyyy",
           onMonthChange: (result) {
             print("onMonthChange => " + result.toString());
           },

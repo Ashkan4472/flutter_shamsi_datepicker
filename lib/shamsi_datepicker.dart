@@ -60,6 +60,11 @@ class ShamsiDatepicker extends StatefulWidget {
   /// Text color when an deactive date will select
   final Color deactiveSelectedDateTextColor;
 
+  /// Shamsi text format. return the expected result
+  /// for example: "yyyy-mm-dd" => 1399/12/20
+  /// default format is: "yyyy/mm/dd"
+  final String shamsiDateStringFormat;
+
   const ShamsiDatepicker({
     Key key,
     @required this.onMonthChange,
@@ -79,6 +84,7 @@ class ShamsiDatepicker extends StatefulWidget {
     this.datesBorderRadius,
     this.deactiveSelectedDateBackColor,
     this.deactiveSelectedDateTextColor,
+    this.shamsiDateStringFormat,
   }) : super(key: key);
 
   @override
@@ -126,6 +132,7 @@ class _PersianDatepickerState extends State<ShamsiDatepicker> {
             datesBorderRadius: widget.datesBorderRadius,
             deactiveSelectedDateBackColor: widget.deactiveSelectedDateBackColor,
             deactiveSelectedDateTextColor: widget.deactiveSelectedDateTextColor,
+            shamsiDateStringFormat: widget.shamsiDateStringFormat,
           ),
         ],
       ),
