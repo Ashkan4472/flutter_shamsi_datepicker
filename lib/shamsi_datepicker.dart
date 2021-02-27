@@ -45,6 +45,21 @@ class ShamsiDatepicker extends StatefulWidget {
   /// TextStyle for weeks text
   final TextStyle weekTextStyle;
 
+  /// Background color when an active date will select
+  final Color activeSelectedDateBackColor;
+
+  /// Text color when an active date will select
+  final Color activeSelectedDateTextColor;
+
+  /// Border radius for dates button
+  final double datesBorderRadius;
+
+  /// Background color when an deactive date will select
+  final Color deactiveSelectedDateBackColor;
+
+  /// Text color when an deactive date will select
+  final Color deactiveSelectedDateTextColor;
+
   const ShamsiDatepicker({
     Key key,
     @required this.onMonthChange,
@@ -59,6 +74,11 @@ class ShamsiDatepicker extends StatefulWidget {
     this.useFullWeekName,
     this.weekTextStyle,
     this.deactiveDayList,
+    this.activeSelectedDateBackColor,
+    this.activeSelectedDateTextColor,
+    this.datesBorderRadius,
+    this.deactiveSelectedDateBackColor,
+    this.deactiveSelectedDateTextColor,
   }) : super(key: key);
 
   @override
@@ -101,6 +121,11 @@ class _PersianDatepickerState extends State<ShamsiDatepicker> {
             useFullWeekName: widget.useFullWeekName,
             weekTextStyle: widget.weekTextStyle,
             deactiveDayList: widget.deactiveDayList,
+            activeSelectedDateBackColor: widget.activeSelectedDateBackColor,
+            activeSelectedDateTextColor: widget.activeSelectedDateTextColor,
+            datesBorderRadius: widget.datesBorderRadius,
+            deactiveSelectedDateBackColor: widget.deactiveSelectedDateBackColor,
+            deactiveSelectedDateTextColor: widget.deactiveSelectedDateTextColor,
           ),
         ],
       ),
