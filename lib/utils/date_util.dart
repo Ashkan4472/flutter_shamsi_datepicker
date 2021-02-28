@@ -32,12 +32,39 @@ class DateUtil {
 
   static String formatDate(Jalali jalali, String format) {
     var result = format;
+    if (result == null || result == "") {
+      result = "yyyy/mm/dd";
+    }
+
     var d = jalali.formatter.d;
     var dd = jalali.formatter.dd;
     var m = jalali.formatter.m;
     var mm = jalali.formatter.mm;
     var yy = jalali.formatter.yy;
     var yyyy = jalali.formatter.yyyy;
+
+    result = result.replaceAll(new RegExp('yyyy'), yyyy);
+    result = result.replaceAll(new RegExp('yy'), yy);
+    result = result.replaceAll(new RegExp('mm'), mm);
+    result = result.replaceAll(new RegExp('m'), m);
+    result = result.replaceAll(new RegExp('dd'), dd);
+    result = result.replaceAll(new RegExp('d'), d);
+
+    return result;
+  }
+
+  static String formatGregorianDate(Gregorian gregorian, String format) {
+    var result = format;
+    if (result == null || result == "") {
+      result = "yyyy/mm/dd";
+    }
+
+    var d = gregorian.formatter.d;
+    var dd = gregorian.formatter.dd;
+    var m = gregorian.formatter.m;
+    var mm = gregorian.formatter.mm;
+    var yy = gregorian.formatter.yy;
+    var yyyy = gregorian.formatter.yyyy;
 
     result = result.replaceAll(new RegExp('yyyy'), yyyy);
     result = result.replaceAll(new RegExp('yy'), yy);

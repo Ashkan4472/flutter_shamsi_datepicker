@@ -6,10 +6,10 @@ class DateSelect extends StatefulWidget {
   final Jalali jalali;
   final bool useFullWeekName;
   final TextStyle weekTextStyle;
-  final Function(String) onDateSelect;
+  final Function(String, String) onDateSelect;
   final TextStyle activeDateTextStyle;
   final List<int> deactiveWeekList;
-  final Function(String) onDeactiveDateSelect;
+  final Function(String, String) onDeactiveDateSelect;
   final TextStyle deactiveDateTextStyle;
   final List<int> deactiveDayList;
   final Color activeSelectedDateBackColor;
@@ -18,6 +18,7 @@ class DateSelect extends StatefulWidget {
   final Color deactiveSelectedDateTextColor;
   final double datesBorderRadius;
   final String shamsiDateStringFormat;
+  final String gregorianDateStringFormat;
 
   const DateSelect({
     Key key,
@@ -36,6 +37,7 @@ class DateSelect extends StatefulWidget {
     this.deactiveSelectedDateBackColor,
     this.deactiveSelectedDateTextColor,
     this.shamsiDateStringFormat,
+    this.gregorianDateStringFormat,
   }) : super(key: key);
 
   @override
@@ -67,17 +69,21 @@ class _DateSelectState extends State<DateSelect> {
             setState(() {
               selectedDate = jalali.day;
             });
-            final result =
+            final resultShamsi =
                 DateUtil.formatDate(jalali, widget.shamsiDateStringFormat);
-            widget.onDateSelect(result);
+            final resultGregorian = DateUtil.formatGregorianDate(
+                jalali.toGregorian(), widget.gregorianDateStringFormat);
+            widget.onDateSelect(resultShamsi, resultGregorian);
           },
           onDeactiveDateSelect: (Jalali jalali) {
             setState(() {
               selectedDate = jalali.day;
             });
-            final result =
+            final resultShamsi =
                 DateUtil.formatDate(jalali, widget.shamsiDateStringFormat);
-            widget.onDeactiveDateSelect(result);
+            final resultGregorian = DateUtil.formatGregorianDate(
+                jalali.toGregorian(), widget.gregorianDateStringFormat);
+            widget.onDeactiveDateSelect(resultShamsi, resultGregorian);
           }),
     );
 

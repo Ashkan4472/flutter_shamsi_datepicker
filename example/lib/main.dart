@@ -82,14 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
           weekTextStyle: weekTextStyle,
           // customMonthesName: [],
           shamsiDateStringFormat: "mm-d-yyyy",
-          onMonthChange: (result) {
-            print("onMonthChange => " + result.toString());
+          onMonthChange: (shamsi, gregorian) {
+            print("onMonthChange => $shamsi $gregorian");
           },
-          onDateSelect: (result) {
-            print('onDateSelect => ' + result);
+          onDateSelect: (shamsi, gregorian) {
+            print("onDateSelect => $shamsi $gregorian");
           },
-          onDeactiveDateSelect: (result) {
-            print('onDeactiveDateSelect => ' + result);
+          onDeactiveDateSelect: (shamsi, gregorian) {
+            print("onDeactiveDateSelect => $shamsi $gregorian");
           },
         ),
       ),

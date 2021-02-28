@@ -15,14 +15,14 @@ class ShamsiDatepicker extends StatefulWidget {
   /// Default months name are set. add an array with length 12 for custom monthes name
   final List<String> customMonthesName;
 
-  /// Evnet that calls whenever monthes changes. Fucntion(int newMonth)
-  final Function(int) onMonthChange;
+  /// Evnet that calls whenever monthes changes. Fucntion(shamsiMonth, gregorianMonth)
+  final Function(int, int) onMonthChange;
 
   /// Acvive Date TextStyle
   final TextStyle activeDateTextStyle;
 
-  /// Active Date onSelect. this funtion returns shamsi string date
-  final Function(String) onDateSelect;
+  /// Active Date onSelect. this funtion returns (shamsi, gregorian) string date
+  final Function(String, String) onDateSelect;
 
   /// Deactive Weeks number. this is a list with week number [1 => shanbe, 7 => jome]
   /// for examle [1, 2, 5] and this will disable shanbe, yekshanbe, chaharshanbe
@@ -36,8 +36,8 @@ class ShamsiDatepicker extends StatefulWidget {
   /// Deactive Date TextStyle
   final TextStyle deactiveDateTextStyle;
 
-  /// Deavtive Date onSelect. this funtion returns shamsi string date
-  final Function(String) onDeactiveDateSelect;
+  /// Deavtive Date onSelect. this funtion returns (shamsi, gregorian) string date
+  final Function(String, String) onDeactiveDateSelect;
 
   /// if sets to true, weeks name will written complete
   final bool useFullWeekName;
@@ -61,9 +61,14 @@ class ShamsiDatepicker extends StatefulWidget {
   final Color deactiveSelectedDateTextColor;
 
   /// Shamsi text format. return the expected result
-  /// for example: "yyyy-mm-dd" => 1399/12/20
+  /// for example: "yyyy-mm-dd" => 1399-12-20
   /// default format is: "yyyy/mm/dd"
   final String shamsiDateStringFormat;
+
+  /// Gregorian text format. return the expected result
+  /// for example: "yyyy-mm-dd" => 2021-02-21
+  /// default format is: "yyyy/mm/dd"
+  final String gregorianDateStringFormat;
 
   const ShamsiDatepicker({
     Key key,
@@ -85,6 +90,7 @@ class ShamsiDatepicker extends StatefulWidget {
     this.deactiveSelectedDateBackColor,
     this.deactiveSelectedDateTextColor,
     this.shamsiDateStringFormat,
+    this.gregorianDateStringFormat,
   }) : super(key: key);
 
   @override
@@ -110,7 +116,7 @@ class _PersianDatepickerState extends State<ShamsiDatepicker> {
             onMonthChange: (jalali) {
               setState(() {
                 this.jalali = jalali;
-                widget.onMonthChange(jalali.month);
+                widget.onMonthChange(jalali.month, jalali.toGregorian().month);
               });
             },
             monthTextStyle: widget.monthTextStyle,
@@ -133,6 +139,7 @@ class _PersianDatepickerState extends State<ShamsiDatepicker> {
             deactiveSelectedDateBackColor: widget.deactiveSelectedDateBackColor,
             deactiveSelectedDateTextColor: widget.deactiveSelectedDateTextColor,
             shamsiDateStringFormat: widget.shamsiDateStringFormat,
+            gregorianDateStringFormat: widget.gregorianDateStringFormat,
           ),
         ],
       ),
